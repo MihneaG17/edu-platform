@@ -8,7 +8,6 @@ ALTER TABLE submissions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE ai_session_analyses ENABLE ROW LEVEL SECURITY;
 
 -- for dev 
-
 CREATE POLICY "Allow full access to authenticated users" ON profiles FOR ALL USING (auth.role() = 'authenticated');
 CREATE POLICY "Allow full access to authenticated users" ON classrooms FOR ALL USING (auth.role() = 'authenticated');
 CREATE POLICY "Allow full access to authenticated users" ON classroom_students FOR ALL USING (auth.role() = 'authenticated');

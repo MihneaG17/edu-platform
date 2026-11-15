@@ -15,7 +15,11 @@ export async function signup(formData: FormData) {
     })
 
     if (error) {
-        redirect('/signup?message=Eroare la crearea contului')
+        console.error("🔥 EROARE SUPABASE:", error) // <-- ADAUGĂ LINIA ASTA
+    
+        if (error.code === 'user_already_exists') {
+        redirect('/signup?message=Acest email este deja înregistrat. Te rugăm să te loghezi.')
+        }
     }
 
     redirect('/signup?message=Cont creat cu succes!')
